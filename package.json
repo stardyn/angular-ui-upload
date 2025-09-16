@@ -38,12 +38,13 @@
     "rimraf": "^5.0.0"
   },
   "dependencies": {
-    "@types/fine-uploader": "^5.14.0",
-    "fine-uploader": "^5.16.2"
+
   },
   "peerDependencies": {
     "@angular/common": ">=16.0.0",
-    "@angular/core": ">=16.0.0"
+    "@angular/core": ">=16.0.0",
+    "@types/fine-uploader": "^5.14.0",
+    "fine-uploader": "^5.16.2"
   },
   "publishConfig": {
     "access": "public"

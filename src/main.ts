@@ -1,7 +1,7 @@
 // Main entry point for @stardyn/angular-ui-upload package
 
 export { Uploader } from './uploader';
-export { ApiResponse } from './api-response';
+export { UploadResponse } from './upload-response';
 
 export type {
     OnFileUpload,

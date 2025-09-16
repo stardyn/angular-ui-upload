@@ -11,7 +11,7 @@ Angular UI Upload Package - File upload component with progress tracking and fin
 - **Authentication Support**: Bearer token authentication for secure uploads
 - **Event Callbacks**: Comprehensive callback system for upload events
 - **TypeScript Support**: Full TypeScript support with type definitions
-- **API Response Handling**: Structured API response parsing with ApiResponse class
+- **API Response Handling**: Structured API response parsing with UploadResponse class
 
 ## Installation
 
@@ -33,7 +33,7 @@ npm install @angular/core @angular/common fine-uploader @types/fine-uploader
 
 ```typescript
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Uploader, ApiResponse } from '@stardyn/angular-ui-upload';
+import { Uploader, UploadResponse } from '@stardyn/angular-ui-upload';
 
 @Component({
   selector: 'app-upload',
@@ -71,7 +71,7 @@ export class UploadComponent {
       this.progress = percent;
     };
 
-    this.uploader.onFileCompleted = (id, response: ApiResponse) => {
+    this.uploader.onFileCompleted = (id, response: UploadResponse) => {
       console.log('Upload completed:', response);
       this.uploading = false;
       
@@ -147,7 +147,7 @@ Main upload handler class.
 |----------|------------|-------------|
 | `onFileUpload` | `(id: number, path: string, size: number) => void` | Called when upload starts |
 | `onFileUploadProgress` | `(id: number, percent: number, total: number) => void` | Called during upload progress |
-| `onFileCompleted` | `(id: number, res: ApiResponse) => void` | Called when upload completes |
+| `onFileCompleted` | `(id: number, res: UploadResponse) => void` | Called when upload completes |
 | `onFileError` | `(id: number, name: string, errorReason: string) => void` | Called on upload error |
 
 #### Methods
@@ -156,7 +156,7 @@ Main upload handler class.
 |--------|-------------|
 | `init()` | Initialize the uploader with current configuration |
 
-### ApiResponse Class
+### UploadResponse Class
 
 Response handler for API calls.
 
@@ -175,8 +175,8 @@ Response handler for API calls.
 
 | Method | Parameters | Description |
 |--------|------------|-------------|
-| `constructor` | `response: any` | Create ApiResponse from raw response |
-| `create` | `params: object` | Static method to create ApiResponse manually |
+| `constructor` | `response: any` | Create UploadResponse from raw response |
+| `create` | `params: object` | Static method to create UploadResponse manually |
 
 ### Type Definitions
 
@@ -184,7 +184,7 @@ Response handler for API calls.
 // Event callback types
 export declare type OnFileUpload = (id: number, path: string, size: number) => void;
 export declare type OnFileUploadProgress = (id: number, percent: number, total: number) => void;
-export declare type OnFileCompleted = (id: number, res: ApiResponse) => void;
+export declare type OnFileCompleted = (id: number, res: UploadResponse) => void;
 export declare type OnFileError = (id: number, name: string, errorReason: string) => void;
 ```
 

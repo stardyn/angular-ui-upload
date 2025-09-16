@@ -1,4 +1,4 @@
-export class ApiResponse {
+export class UploadResponse {
   public code: number = -1;
   public data: any = null;
   public success: boolean = false;
@@ -53,14 +53,14 @@ export class ApiResponse {
     this.dataItemCount = data.total || data.data?.total || 0;
   }
 
-  // Helper metod - manuel ApiResponse oluşturmak için
+  // Helper metod - manuel UploadResponse oluşturmak için
   public static create(params: {
     success: boolean;
     data?: any;
     message?: string;
     code?: number;
-  }): ApiResponse {
-    return new ApiResponse({
+  }): UploadResponse {
+    return new UploadResponse({
       success: params.success,
       data: params.data || null,
       message: params.message || "",

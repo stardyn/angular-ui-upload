@@ -1,13 +1,13 @@
 /// <reference types="fine-uploader" />
 
 import {FineUploaderBasic} from 'fine-uploader/lib/core';
-import {ApiResponse} from "@/api-response";
+import {UploadResponse} from "@/upload-response";
 
 export declare type OnFileUpload = (id: number, path: string, size: number) => void;
 
 export declare type OnFileUploadProgress = (id: number, percent: number, total: number) => void;
 
-export declare type OnFileCompleted = (id: number, res: ApiResponse) => void;
+export declare type OnFileCompleted = (id: number, res: UploadResponse) => void;
 
 export declare type OnFileError = (id: number, name: string, errorReason: string) => void;
 
@@ -123,7 +123,7 @@ export class Uploader {
 
         onComplete: (id: number, name: string, responseJson: any) => {
 
-          const res = new ApiResponse(responseJson);
+          const res = new UploadResponse(responseJson);
 
           if (self.isDebug) {
             console.log("onComplete", id, name, responseJson, res);
